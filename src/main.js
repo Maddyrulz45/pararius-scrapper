@@ -75,7 +75,8 @@ const runPuppeteerforPararius = async (url) => {
 
     console.log('going to Pararius');
     console.log(url)
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.goto(url, {'timeout': 10000, 'waitUntil':'load'});
+    //await page.goto(url, { waitUntil: 'domcontentloaded' });
 
     const htmlString = await page.content();
     const virtualConsole = new jsdom.VirtualConsole();
