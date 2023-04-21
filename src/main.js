@@ -74,13 +74,14 @@ const runPuppeteerforPararius = async (url) => {
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36');
 
     console.log('going to Pararius');
+    console.log(url)
     await page.goto(url, { waitUntil: 'domcontentloaded' });
 
     const htmlString = await page.content();
     const virtualConsole = new jsdom.VirtualConsole();
     const dom = new jsdom.JSDOM (htmlString, {virtualConsole});
 
-    
+    console.log("htmlString:"+htmlString)
 
     console.log('parsing pararius.nl data');
     
