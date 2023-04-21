@@ -78,7 +78,7 @@ const runPuppeteerforPararius = async (url) => {
 
     const htmlString = await page.content();
     const virtualConsole = new jsdom.VirtualConsole();
-    const dom = new JSDOM(htmlString, {virtualConsole});
+    const dom = new jsdom.JSDOM(htmlString);
     
 
     console.log('parsing pararius.nl data');
